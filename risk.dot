@@ -60,6 +60,8 @@ digraph G {
 		node [style=filled; color=orange];
 		edge [arrowhead=none];
 
+		SouthAfrica[label="South Africa"];
+		EastAfrica[label="East Africa"];
 
 		{rank=min; NorthAfrica; Egypt;};
 		{rank=same; Congo;EastAfrica};
@@ -85,20 +87,25 @@ digraph G {
 		node [style=filled; color=lightblue];
 		edge [arrowhead=none];
 
-		{rank=min; Iceland; Scandinavia;};
-		{rank=same; GB;NEU;Ukraine};
-		{rank=max; SEU;WEU;};
+		GreatBritain[label="Great Britain"];
+		WesternEurope[label="Western Europe"];
+		SouthernEurope[label="Southern Europe"];
+		NorthernEurope[label="Northern Europe"];
 
-		GB -> Iceland
-		GB -> NEU
-		GB -> Scandinavia;
-		GB -> WEU
+		{rank=min; Iceland; Scandinavia;};
+		{rank=same; GreatBritain;NorthernEurope;Ukraine};
+		{rank=max; SouthernEurope;WesternEurope;};
+
+		GreatBritain -> Iceland
+		GreatBritain -> NorthernEurope;
+		GreatBritain -> Scandinavia;
+		GreatBritain -> WesternEurope
 		Iceland -> Scandinavia;
-		NEU -> SEU
-		NEU -> Scandinavia;
-		NEU -> Ukraine;
-		NEU -> WEU
-		SEU -> Ukraine;
+		NorthernEurope -> SouthernEurope
+		NorthernEurope -> Scandinavia;
+		NorthernEurope -> Ukraine;
+		NorthernEurope -> WesternEurope
+		SouthernEurope -> Ukraine;
 		Scandinavia -> Ukraine;
 		
 		label = "Europe";
@@ -110,6 +117,10 @@ digraph G {
 		
 		node [style=filled; color=pink];
 		edge [arrowhead=none];
+
+		NewGuinea[label="New Guinea"];
+		EasternAustralia[label="Eastern Australia"];
+		WesternAustralia[label="Western Australia"];
 
 		{rank=min; Indonesia; NewGuinea;};
 		{rank=max; EasternAustralia; WesternAustralia};
@@ -129,6 +140,8 @@ digraph G {
 		
 		node [style=filled; color=green];
 		edge [arrowhead=none];
+
+		MiddleEast[label="Middle East"];
 
 		{rank=min; Ural; Siberia; Yakutsk};
 		{rank=same; Afganistan; Irkutsk; Mongolia; Kamchatka};
@@ -170,14 +183,14 @@ digraph G {
 	Alaska -> Kamchatka
 	Brazil -> NorthAfrica
 	CentralAmerica->Venezuala
-	EastAfrica -> SEU
+	EastAfrica -> SouthernEurope
 	Egypt -> MiddleEast
-	Egypt -> SEU
+	Egypt -> SouthernEurope
 	Greenland->Iceland
-	MiddleEast -> SEU
+	MiddleEast -> SouthernEurope
 	MiddleEast -> Ukraine
-	NorthAfrica -> SEU
-	NorthAfrica -> WEU
+	NorthAfrica -> SouthernEurope
+	NorthAfrica -> WesternEurope
 	Siam -> Indonesia
 	Ukraine -> Ural
 }
