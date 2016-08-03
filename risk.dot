@@ -2,6 +2,7 @@ digraph G {
 
 	subgraph cluster_north_america {
 		style=filled;
+		sort=0;
 
 		node [style=filled,color=yellow];
 		edge [arrowhead=none];
@@ -39,6 +40,7 @@ digraph G {
 
 	subgraph cluster_south_america {
 		style=filled;
+		sort=4;
 		node [style=filled;color=orangered];
 		edge [arrowhead=none];
 
@@ -57,13 +59,17 @@ digraph G {
 
 	subgraph cluster_africa {
 		style=filled;
+		sort=5;
 		node [style=filled; color=orange];
 		edge [arrowhead=none];
 
 		SouthAfrica[label="South Africa"];
-		EastAfrica[label="East Africa"];
 
-		{rank=min; NorthAfrica; Egypt;};
+		EastAfrica[label="East Africa"];
+		NorthAfrica[label="North Africa"];
+
+		{rank=min; NorthAfrica;Egypt};
+		
 		{rank=same; Congo;EastAfrica};
 		{rank=max; SouthAfrica;Madagascar};
 
@@ -83,7 +89,7 @@ digraph G {
 
 	subgraph cluster_europa {
 		style=filled;
-		
+		sort=1;		
 		node [style=filled; color=lightblue];
 		edge [arrowhead=none];
 
@@ -114,7 +120,7 @@ digraph G {
 
 	subgraph cluster_australia {
 		style=filled;
-		
+		sort=6;		
 		node [style=filled; color=pink];
 		edge [arrowhead=none];
 
@@ -122,8 +128,9 @@ digraph G {
 		EasternAustralia[label="Eastern Australia"];
 		WesternAustralia[label="Western Australia"];
 
-		{rank=min; Indonesia; NewGuinea;};
-		{rank=max; EasternAustralia; WesternAustralia};
+		{rank=min; Indonesia;};
+		{rank=same;  NewGuinea; WesternAustralia};
+		{rank=max; EasternAustralia;};
 
 		EasternAustralia -> WesternAustralia;
 		EasternAustralia -> NewGuinea;
@@ -137,16 +144,17 @@ digraph G {
 
 	subgraph cluster_asia {
 		style=filled;
-		
+		sort=3;		
 		node [style=filled; color=green];
 		edge [arrowhead=none];
 
 		MiddleEast[label="Middle East"];
 
-		{rank=min; Ural; Siberia; Yakutsk};
-		{rank=same; Afganistan; Irkutsk; Mongolia; Kamchatka};
+		{rank=min; Ural; Siberia; Yakutsk; Kamchatka};
+		{rank=same; Afganistan; Irkutsk; Mongolia};
 		{rank=same; China; Japan}
-		{rank=max; MiddleEast; India; Siam};
+		{rank=same; MiddleEast; India;};
+		{rank=max; Siam};
 
 		Afganistan -> China
 		Afganistan -> India
@@ -167,7 +175,7 @@ digraph G {
 		Japan -> Mongolia
 		Kamchatka -> Irkutsk
 		Kamchatka -> Mongolia
-		Kamchatka -> Yakitsk
+		Kamchatka -> Yakutsk
 		Siberia -> Yakutsk
 		
 
@@ -180,7 +188,7 @@ digraph G {
 
 
 	Afganistan -> Ukraine
-	Alaska -> Kamchatka
+	Alaska -> Kamchatka [constraint=false];
 	Brazil -> NorthAfrica
 	CentralAmerica->Venezuala
 	EastAfrica -> SouthernEurope
