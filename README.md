@@ -2,4 +2,4 @@
 Toplology (graph) of Risk game countries and continents
 
 
-<img src="https://gnewton.github.io/repos/risk-graph/master/risk.svg">
+<img src="https://gnewton.github.io/repos/risk-graph/risk.svg">
