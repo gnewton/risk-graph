@@ -1,0 +1,183 @@
+digraph G {
+
+	subgraph cluster_north_america {
+		style=filled;
+
+		node [style=filled,color=yellow];
+		edge [arrowhead=none];
+
+		NWT[label="Northwest Territory"];
+		QC[label="Quebec"];
+		WUS[label="Western United States"];
+		EUS[label="Eastern United States"];
+		CentralAmerica[label="Central America"];
+
+		{rank=min; Alaska; NWT; Greenland};
+		{rank=same; Alberta; Ontario; QC};
+		{rank=same; EUS; WUS};
+		{rank=max; CentralAmerica;};
+
+		Alaska->Alberta
+		Alaska->NWT
+		Alberta -> NWT
+		Alberta -> Ontario;
+		Alberta -> WUS
+		CentralAmerica -> WUS
+		CentralAmerica -> EUS
+		QC -> Ontario
+		QC -> EUS
+		QC -> Greenland
+		EUS -> Ontario
+		EUS -> WUS
+		Greenland -> NWT
+		Greenland -> Ontario
+		Ontario -> WUS
+
+
+		label = "North America";
+	}
+
+	subgraph cluster_south_america {
+		style=filled;
+		node [style=filled;color=orangered];
+		edge [arrowhead=none];
+
+		{rank=min; Venezuala;};
+		{rank=same; Brazil; Peru;};
+		{rank=max; Argentina};
+
+		Argentina->Brazil
+		Argentina->Peru
+		Brazil->Venezuala
+		Peru->Venezuala
+
+		label = "South America";
+
+	}
+
+	subgraph cluster_africa {
+		style=filled;
+		node [style=filled; color=orange];
+		edge [arrowhead=none];
+
+
+		{rank=min; NorthAfrica; Egypt;};
+		{rank=same; Congo;EastAfrica};
+		{rank=max; SouthAfrica;Madagascar};
+
+		Congo -> EastAfrica;
+		Congo -> NorthAfrica;
+		Congo -> SouthAfrica;
+		EastAfrica -> Egypt;
+		EastAfrica -> NorthAfrica;
+		EastAfrica -> SouthAfrica;
+		EastAfrica -> Madagascar;
+		Madagascar -> SouthAfrica;
+		Egypt -> NorthAfrica;
+		
+		label = "Africa";
+
+	}
+
+	subgraph cluster_europa {
+		style=filled;
+		
+		node [style=filled; color=lightblue];
+		edge [arrowhead=none];
+
+		{rank=min; Iceland; Scandinavia;};
+		{rank=same; GB;NEU;Ukraine};
+		{rank=max; SEU;WEU;};
+
+		GB -> Iceland
+		GB -> NEU
+		GB -> Scandinavia;
+		GB -> WEU
+		Iceland -> Scandinavia;
+		NEU -> SEU
+		NEU -> Scandinavia;
+		NEU -> Ukraine;
+		NEU -> WEU
+		SEU -> Ukraine;
+		Scandinavia -> Ukraine;
+		
+		label = "Europe";
+
+	}
+
+	subgraph cluster_australia {
+		style=filled;
+		
+		node [style=filled; color=pink];
+		edge [arrowhead=none];
+
+		{rank=min; Indonesia; NewGuinea;};
+		{rank=max; EasternAustralia; WesternAustralia};
+
+		EasternAustralia -> WesternAustralia;
+		EasternAustralia -> NewGuinea;
+		Indonesia -> NewGuinea;
+		Indonesia -> WesternAustralia;
+		NewGuinea -> WesternAustralia;
+
+		label = "Australia";
+
+	}
+
+	subgraph cluster_asia {
+		style=filled;
+		
+		node [style=filled; color=green];
+		edge [arrowhead=none];
+
+		{rank=min; Ural; Siberia; Yakutsk};
+		{rank=same; Afganistan; Irkutsk; Mongolia; Kamchatka};
+		{rank=same; China; Japan}
+		{rank=max; MiddleEast; India; Siam};
+
+		Afganistan -> China
+		Afganistan -> India
+		Afganistan -> MiddleEast
+		Afganistan -> Siberia
+		Afganistan -> Ural
+		China -> India
+		China -> Mongolia
+		China -> Siam
+		China -> Siberia
+		China -> Ural
+		India -> MiddleEast
+		India -> Siam
+		Irkutsk -> Mongolia
+		Irkutsk -> Siberia
+		Irkutsk -> Yakutsk
+		Japan -> Kamchatka
+		Japan -> Mongolia
+		Kamchatka -> Irkutsk
+		Kamchatka -> Mongolia
+		Kamchatka -> Yakitsk
+		Siberia -> Yakutsk
+		
+
+		label = "Asia";
+
+	}
+
+/////////////////////////
+	edge [arrowhead=none];
+
+
+	Afganistan -> Ukraine
+	Alaska -> Kamchatka
+	Brazil -> NorthAfrica
+	CentralAmerica->Venezuala
+	EastAfrica -> SEU
+	Egypt -> MiddleEast
+	Egypt -> SEU
+	Greenland->Iceland
+	MiddleEast -> SEU
+	MiddleEast -> Ukraine
+	NorthAfrica -> SEU
+	NorthAfrica -> WEU
+	Siam -> Indonesia
+	Ukraine -> Ural
+}
